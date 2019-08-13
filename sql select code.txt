@@ -1,0 +1,92 @@
+select customerid, item, price 
+from items_ordered
+where customerid = 10449;
+
+select * from items_ordered
+where item = 'Tent';
+
+select customerid, order_date, price
+from items_ordered
+where item like 'S%';
+
+select distinct item
+from items_ordered;
+
+select max(price) from items_ordered;
+
+select avg(price) from items_ordered
+where order_date like '%Dec%';
+
+select count(*) from items_ordered;
+
+select min(price) from items_ordered
+where item = 'Tent';
+
+select state, count(state)
+from customers
+group by state;
+
+select item, max(price), min(price)
+from items_ordered
+group by item;
+
+select customerid, count(customerid), sum(price)
+from items_ordered
+group by customerid;
+
+select state, count(state)
+from customers
+group by state
+having count(state) > 1;
+
+select item, max(price), min(price)
+from items_ordered
+group by item
+having max(price) > 190.00;
+
+select customerid, count(customerid), sum(price)
+from items_ordered
+group by customerid
+having count(customerid) > 1;
+
+select lastname, firstname, city
+from customers
+order by lastname;
+
+select lastname, firstname, city
+from customers
+order by lastname desc;
+
+select item, price
+from items_ordered
+where price > 10.00
+order by price;
+
+select customerid, order_date, item
+from items_ordered
+where item != 'Snow Shoes' and item != 'Ear Muffs';
+
+select item, price
+from items_ordered
+where item like 'S%' or item like 'P%' or item like 'F%';
+
+select order_date, item, price
+from items_ordered
+where price between 10.00 and 80.00;
+
+select firstname, city, state
+from customers
+where state in ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
+
+select item, sum(price)/sum(quantity)
+from items_ordered
+group by item;
+
+select customers.customerid, customers.firstname, customers.lastname, items_ordered.order_date, items_ordered.item, items_ordered.price
+from customers, items_ordered
+where customers.customerid = items_ordered.customerid;
+
+select customers.state, customers.customerid, customers.firstname, customers.lastname, items_ordered.order_date, items_ordered.item, items_ordered.price
+from customers, items_ordered
+where customers.customerid = items_ordered.customerid
+order by customers.state desc;

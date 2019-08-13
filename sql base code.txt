@@ -1,0 +1,58 @@
+create table company_yc477
+(firstname varchar(20),
+lastname varchar(20),
+title varchar(20),
+age number(3),
+salary number(10));
+
+select * from company_yc477;
+
+insert into company_yc477
+(firstname, lastname, title, age, salary)
+values ('Jonie', 'Weber', 'Secretary', 28, 19500.00);
+
+insert into company_yc477
+(firstname, lastname, title, age, salary)
+values ('Potsy', 'Weber', 'Programmer', 32, 45300.00);
+
+insert into company_yc477
+(firstname, lastname, title, age, salary)
+values ('Dirk', 'Smith', 'Programmer II', 45, 75020.00);
+
+update company_yc477
+set lastname = 'Weber-Williams'
+where firstname = 'Jonie';
+
+update company_yc477
+set age = age+1
+where firstname = 'Dirk' and lastname = 'Smith';
+
+update company_yc477
+set title = 'Administrative Assistant'
+where title = 'Secretary';
+
+update company_yc477
+set salary = salary+3500
+where salary < 30000;
+
+update company_yc477
+set salary = salary+4500
+where salary > 33500;
+
+update company_yc477
+set title = 'Programmer III'
+where title = 'Programmer II';
+
+update company_yc477
+set title = 'Programmer II'
+where title = 'Programmer';
+
+select * from company_yc477;
+
+delete from company_yc477
+where firstname = 'Jonie' and lastname = 'Weber-Williams';
+
+delete from company_yc477
+where salary > 70000;
+
+drop table company_yc477;
